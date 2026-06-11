@@ -1,8 +1,6 @@
 # Codebase Q&A Bot — Free Cloud Stack
 
-Ask natural language questions about any GitHub repo. Get answers with exact code citations. **Zero downloads. Zero local GPU. Everything runs in the cloud on free tiers.**
-
-## Free Services (sign up takes 2 minutes each)
+Ask natural language questions about any GitHub repo. Get answers with exact code citations. 
 
 | What | Service | Sign up | Free limit |
 |------|---------|---------|------------|
@@ -34,7 +32,7 @@ tree-sitter AST parsing
 
 ## Setup (10 minutes)
 
-### 1. Get your free API keys
+### 1. Get your API keys
 
 - **Groq:** https://console.groq.com → API Keys → Create
 - **Cohere:** https://dashboard.cohere.com → API Keys → Trial Key
@@ -59,24 +57,14 @@ That's it. API is live at `http://localhost:8080`.
 
 ### Ingest a repo
 ```bash
-curl -X POST http://localhost:8080/api/v1/ingest \
-  -H "Content-Type: application/json" \
-  -d '{"repoUrl": "https://github.com/spring-projects/spring-petclinic"}'
-# → {"repoId": "...", "status": "PROCESSING"}
+just paste the link of any repo 
 ```
 
-### Poll status
-```bash
-curl http://localhost:8080/api/v1/ingest/{repoId}/status
-# → {"status": "DONE", "totalChunks": 342}
-```
+
 
 ### Ask a question
 ```bash
-curl -X POST http://localhost:8080/api/v1/query \
-  -H "Content-Type: application/json" \
-  -d '{"repoId": "...", "question": "How is the Owner entity mapped to the database?"}'
-```
+ask any question
 
 **Response:**
 ```json
