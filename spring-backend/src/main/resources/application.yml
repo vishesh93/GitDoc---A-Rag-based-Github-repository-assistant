@@ -8,6 +8,8 @@ spring:
     redis:
       host: ${REDISHOST:localhost}
       port: ${REDISPORT:6379}
+      username: default
+      password: ${REDISPASSWORD}
       timeout: 2000ms
 
 app:
