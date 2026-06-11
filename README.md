@@ -97,10 +97,4 @@ curl -X POST http://localhost:8080/api/v1/query \
 }
 ```
 
-## Resume Bullet Points
 
-- Built AST-aware code chunking pipeline (tree-sitter) splitting by function/class, not token windows
-- Implemented semantic retrieval via Qdrant Cloud + Cohere embeddings with cross-encoder reranking
-- Designed async ingestion pipeline in Spring Boot with Redis-backed status polling
-- Microservices: Spring Boot orchestrates a Python FastAPI service over HTTP
-- Full free-tier cloud stack: Groq (LLM) + Cohere (embed + rerank) + Qdrant Cloud (vector DB)
