@@ -28,3 +28,7 @@ app:
   cache:
     ingestion-ttl-hours: 24
     query-ttl-minutes: 30
+    management:
+      health:
+        redis:
+          enabled: false
