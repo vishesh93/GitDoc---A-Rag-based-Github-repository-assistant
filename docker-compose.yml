@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  chunker:
+    build:
+      context: ./python-chunker
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+  backend:
+    build:
+      context: ./spring-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - COHERE_API_KEY=${COHERE_API_KEY}
+      - QDRANT_URL=${QDRANT_URL}
+      - QDRANT_API_KEY=${QDRANT_API_KEY}
+      - REDIS_HOST=redis
+      - CHUNKER_SERVICE_URL=http://chunker:8000
+    depends_on:
+      - redis
+      - chunker
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

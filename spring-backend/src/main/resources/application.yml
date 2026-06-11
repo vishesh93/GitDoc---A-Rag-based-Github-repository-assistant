@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: codebase-qna
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+
+app:
+  chunker:
+    base-url: ${CHUNKER_SERVICE_URL:http://localhost:8000}
+  groq:
+    api-key: ${GROQ_API_KEY}
+    base-url: https://api.groq.com/openai/v1
+    model: llama-3.1-8b-instant
+  cohere:
+    api-key: ${COHERE_API_KEY}
+    base-url: https://api.cohere.ai/v1
+    embedding-model: embed-english-light-v3.0
+  qdrant:
+    url: ${QDRANT_URL}           # e.g. https://xyz.qdrant.io
+    api-key: ${QDRANT_API_KEY}
+    collection: codebase-chunks
+  cache:
+    ingestion-ttl-hours: 24
+    query-ttl-minutes: 30

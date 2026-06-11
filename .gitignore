@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+
+# Java
+target/
+*.class
+
+# Node
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
