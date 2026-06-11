@@ -22,13 +22,14 @@ app:
     base-url: https://api.cohere.ai/v1
     embedding-model: embed-english-light-v3.0
   qdrant:
-    url: ${QDRANT_URL}           # e.g. https://xyz.qdrant.io
+    url: ${QDRANT_URL}
     api-key: ${QDRANT_API_KEY}
     collection: codebase-chunks
   cache:
     ingestion-ttl-hours: 24
     query-ttl-minutes: 30
-    management:
-      health:
-        redis:
-          enabled: false
+
+management:
+  health:
+    redis:
+      enabled: false
